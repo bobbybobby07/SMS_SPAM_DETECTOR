@@ -24,6 +24,12 @@ def test_home_page_loads(client):
     assert b"<textarea" in r.data
 
 
+def test_about_page_loads(client):
+    r = client.get("/about")
+    assert r.status_code == 200
+    assert b"From words to a prediction" in r.data
+
+
 def test_health(client):
     assert client.get("/health").get_json() == {"status": "ok"}
 

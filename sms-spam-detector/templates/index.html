@@ -11,6 +11,11 @@
 </head>
 <body>
   <main class="page">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="{{ url_for('index') }}">SMS / CHECK</a>
+      <a href="{{ url_for('about') }}">About the project</a>
+    </nav>
+
     <header class="intro">
       <h1>Is this text message spam?</h1>
       <p>Paste an SMS below. A Multinomial Naive Bayes model reads it and answers Spam or Not Spam.</p>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | SMS Spam Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page about-page">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="{{ url_for('index') }}">SMS / CHECK</a>
+      <a href="{{ url_for('index') }}">Open detector</a>
+    </nav>
+
+    <header class="intro about-intro">
+      <p class="eyebrow">A machine-learning project</p>
+      <h1>Spot suspicious texts before you reply.</h1>
+      <p>This demo uses a text-classification model to estimate whether an SMS looks like spam. Paste a message into the detector to see its prediction and confidence.</p>
+    </header>
+
+    <section class="about-section" aria-labelledby="method-title">
+      <div class="section-heading">
+        <p class="eyebrow">01 / Method</p>
+        <h2 id="method-title">From words to a prediction</h2>
+      </div>
+      <ol class="method-steps">
+        <li><span>01</span><p>The message is converted into word and two-word phrase counts.</p></li>
+        <li><span>02</span><p>A Multinomial Naive Bayes classifier compares those patterns with examples from the training data.</p></li>
+        <li><span>03</span><p>The page displays the predicted label and the model's confidence for that label.</p></li>
+      </ol>
+    </section>
+
+    <section class="about-section" aria-labelledby="model-title">
+      <div class="section-heading">
+        <p class="eyebrow">02 / Model notes</p>
+        <h2 id="model-title">What the demo uses</h2>
+      </div>
+      <dl class="facts">
+        <div><dt>Training data</dt><dd>SMS Spam Collection, 5,574 messages</dd></div>
+        <div><dt>Text features</dt><dd>Bag-of-words unigrams and bigrams</dd></div>
+        <div><dt>Classifier</dt><dd>Multinomial Naive Bayes with smoothing</dd></div>
+        <div><dt>Message limit</dt><dd>1,000 characters per prediction</dd></div>
+      </dl>
+    </section>
+
+    <aside class="caution" aria-labelledby="caution-title">
+      <p class="eyebrow">A useful signal, not a guarantee</p>
+      <h2 id="caution-title">Check before you act</h2>
+      <p>Automated predictions can be wrong, especially for unusual wording or messages unlike the training examples. Never use a prediction alone to decide whether a link, caller, or request for money is trustworthy.</p>
+    </aside>
+
+    <footer class="foot">Messages are classified for the request and are not stored by this app.</footer>
+  </main>
+</body>
+</html>
