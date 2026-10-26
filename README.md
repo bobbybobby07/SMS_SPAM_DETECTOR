@@ -11,6 +11,16 @@ A Flask web app that estimates whether a text message resembles spam. Paste a me
 - Docker image served with Gunicorn.
 - Messages are processed for the request and are not stored by the app.
 
+## Screenshots
+
+### Message checker
+
+![SMS Spam Detector message checker](sms-spam-detector/static/detector-page.png)
+
+### About page
+
+![SMS Spam Detector About page](sms-spam-detector/static/about-page.png)
+
 ## How it works
 
 The training script downloads the SMS Spam Collection dataset (5,574 messages), removes duplicate entries, and creates an 80/20 train/test split. A scikit-learn pipeline turns text into unigram and bigram counts using `CountVectorizer`, then classifies the counts with `MultinomialNB(alpha=0.1)`. The documented held-out accuracy is about 98.7%; this is a dataset-specific result, not a guarantee for new messages.
